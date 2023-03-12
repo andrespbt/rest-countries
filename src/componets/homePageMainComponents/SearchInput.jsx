@@ -6,14 +6,14 @@ import { Suggestions } from './Suggestions';
 export const SearchInput = ({ isMobile }) => {
   const [searchInput, setSearchInput] = useState('');
 
-  const { data = [], error } = useGetCountriesByNameQuery(searchInput, { skip: !searchInput });
+  const { data = [] } = useGetCountriesByNameQuery(searchInput, { skip: !searchInput });
 
   useEffect(() => {
     if (!searchInput) setSearchInput('');
   }, [searchInput]);
 
   return (
-    <div className="w-[80%] mx-auto shadow-xl dark:text-white relative dark:bg-darkBlue rounded-md bg-white">
+    <div className="w-full mx-auto shadow-xl dark:text-white relative dark:bg-darkBlue rounded-md bg-white">
       <SearchIcon
         width="16px"
         height="16px"

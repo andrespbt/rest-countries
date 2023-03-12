@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const countriesApi = createApi({
-  reducerPath: 'countries',
+  reducerPath: 'countriesApi',
 
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://restcountries.com/v3.1',
