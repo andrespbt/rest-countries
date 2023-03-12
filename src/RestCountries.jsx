@@ -1,10 +1,10 @@
-import { Header, Main } from './componets';
+import { Header } from './componets';
+import { RestCountriesRouter } from './router/RestCountriesRouter';
 
-export const RestCountries = () => {
+export const RestCountries = ({ children }) => {
   return (
     <>
-      <Header />
-      <Main />
+      <RestCountriesRouter />
     </>
   );
 };

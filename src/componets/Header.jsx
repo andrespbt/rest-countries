@@ -1,6 +1,6 @@
 import { MoonIcon } from './icons/MoonIcon';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleMode, setIsMobile } from '../features/ui/uiSlice';
+import { toggleMode, setIsMobile } from '../store/features/ui/uiSlice';
 import { useEffect, useState } from 'react';
 import { MoonFilledIcon } from './icons/MoonFilledIcon';
 
