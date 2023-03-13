@@ -20,8 +20,8 @@ export const FilterOptions = ({ onOptionClick }) => {
       />
       <Option
         onClick={onOptionClick}
-        continent="Europa"
-        value="Europa"
+        continent="Europe"
+        value="Europe"
       />
       <Option
         onClick={onOptionClick}
