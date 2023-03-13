@@ -6,3 +6,4 @@ export * from './card/CardList';
 export * from './homePageMainComponents/filter/FilterOptions';
 export * from './homePageMainComponents/filter/FilterSelect';
 export * from './homePageMainComponents/filter/Option';
+export * from './CountryPageMain';

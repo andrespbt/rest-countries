@@ -21,7 +21,7 @@ export const CardList = ({ data = [] }) => {
       <ul className="w-[80%] block mx-auto px-6">
         {currentTableData.map(({ flags, ccn3, name, population, region, capital }) => (
           <Card
-            info={{ flags, name, population, region, capital }}
+            info={{ flags, name, population, region, capital, ccn3 }}
             key={ccn3}
           />
         ))}

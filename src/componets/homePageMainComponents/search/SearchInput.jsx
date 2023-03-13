@@ -13,7 +13,7 @@ export const SearchInput = ({ isMobile }) => {
   }, [searchInput]);
 
   return (
-    <div className="w-full mx-auto shadow-xl dark:text-white relative dark:bg-darkBlue rounded-md bg-white relative">
+    <div className="w-full mx-auto shadow-xl dark:text-white dark:bg-darkBlue rounded-md bg-white relative">
       <SearchIcon
         width="16px"
         height="16px"
