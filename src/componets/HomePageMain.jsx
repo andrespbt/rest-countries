@@ -10,7 +10,6 @@ export const HomePageMain = () => {
   const { filter } = useSelector(state => state.countries);
   const { data = [], isFetching } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
 
-
   useEffect(() => {
     if (filter) {
       setUpdatedData(data);
@@ -20,8 +19,8 @@ export const HomePageMain = () => {
   }, [isFetching, filter]);
 
   return (
-    <main className="bg-veryLightGray py-4 px-6 dark:bg-veryDarkBlueDarkMode">
-      <section className={`${isMobile ? 'flex-col gap-12 justify-start' : ''} flex w-full`}>
+    <main className="bg-veryLightGray py-4 dark:bg-veryDarkBlueDarkMode">
+      <section className={`${isMobile ? 'flex-col gap-12 justify-start' : ''} flex w-full px-6`}>
         <SearchInput isMobile={isMobile} />
         <FilterSelect isMobile={isMobile} />
       </section>
