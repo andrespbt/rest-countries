@@ -5,7 +5,6 @@ export const uiSlice = createSlice({
   initialState: {
     isDarkMode: false,
     isMobile: null,
-    isLoading: true,
   },
   reducers: {
     toggleMode: state => {
