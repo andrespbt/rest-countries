@@ -17,5 +17,5 @@ export const Suggestions = ({ results }) => {
       {result.name.common}
     </li>
   ));
-  return <ul className="relative bottom-2">{options}</ul>;
+  return <ul className="absolute top-[2.7rem] z-[100] bg-white w-full rounded-b-md dark:bg-darkBlue">{options}</ul>;
 };

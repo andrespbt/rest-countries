@@ -13,10 +13,7 @@ export const HomePageMain = () => {
       </section>
       <section className={`${isMobile ? 'text-sm' : 'text-md'} w-full`}>
         {/* <CardList />*/}
-        {
-          isLoading ? <SkeletonList /> : ''
-        }
-
+        {isLoading ? <SkeletonList /> : ''}
       </section>
     </main>
   );

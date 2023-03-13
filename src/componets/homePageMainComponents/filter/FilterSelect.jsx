@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../../store/features/countries/countriesSlice';
-import { DownArrow } from '../icons/DownArrow';
+import { setFilter } from '../../../store/features/countries/countriesSlice';
+import { DownArrow } from '../../icons/DownArrow';
 import { FilterOptions } from './FilterOptions';
 
 export const FilterSelect = ({ isMobile }) => {

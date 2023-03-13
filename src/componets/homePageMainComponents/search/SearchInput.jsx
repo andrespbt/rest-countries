@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useGetCountriesByNameQuery } from '../../store/apis/countriesAPI';
-import { SearchIcon } from '../icons/SearchIcon';
+import { useGetCountriesByNameQuery } from '../../../store/apis/countriesAPI';
+import { SearchIcon } from '../../icons/SearchIcon';
 import { Suggestions } from './Suggestions';
 
 export const SearchInput = ({ isMobile }) => {
@@ -13,7 +13,7 @@ export const SearchInput = ({ isMobile }) => {
   }, [searchInput]);
 
   return (
-    <div className="w-full mx-auto shadow-xl dark:text-white relative dark:bg-darkBlue rounded-md bg-white">
+    <div className="w-full mx-auto shadow-xl dark:text-white relative dark:bg-darkBlue rounded-md bg-white relative">
       <SearchIcon
         width="16px"
         height="16px"
