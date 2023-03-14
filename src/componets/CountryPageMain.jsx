@@ -13,7 +13,7 @@ export const CountryPageMain = ({ code }) => {
 
   const arrowIcon = (
     <PaginationArrowIcon
-      className="absolute rotate-180 fill top-[0.55rem] left-5 dark:fill-white"
+      className="absolute rotate-180 fill top-[1rem] left-5 dark:fill-white"
       viewBox="0 0 15 15"
       height="16px"
       width="16px"
@@ -25,7 +25,7 @@ export const CountryPageMain = ({ code }) => {
       <main className="dark:text-white bg-veryLightGray dark:bg-veryDarkBlueDarkMode p-6 md:p-0  text-base min-h-[calc(100vh-98px)]">
         <section className="md:pt-8 md:pl-16">
           <Button
-            classes={{ button: 'w-28 px-4', span: 'ml-3' }}
+            classes={{ button: 'w-28 px-3', span: 'ml-3' }}
             onClick={() => navigate('/')}
             icon={arrowIcon}
             text="Back"

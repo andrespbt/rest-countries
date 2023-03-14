@@ -8,7 +8,7 @@ export const ArrowPagination = ({ onClick, rotate, viewBox, currentPage, disable
       <PaginationArrowIcon
         className={`${currentPage === disableNumber ? 'fill-darkGray dark:fill-[#808080]' : 'dark:fill-white'} ${
           rotate && 'rotate-180'
-        }  md:w-9`}
+        } md:w-9`}
         viewBox={viewBox}
       />
     </li>
