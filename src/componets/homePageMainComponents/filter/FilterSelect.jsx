@@ -15,9 +15,10 @@ export const FilterSelect = ({ isMobile }) => {
   };
 
   const onOptionClick = e => {
-    const continent = e.target.innerText;
+    const continent = e.target.innerText === 'None' ? '' : e.target.innerText;
+
     dispatch(setFilter({ filter: continent }));
-    setText(continent);
+    setText(continent ? continent : 'None');
   };
 
   return (
@@ -26,7 +27,7 @@ export const FilterSelect = ({ isMobile }) => {
         isMobile ? 'text-sm' : 'text-base'
       } h-[50px] bg-white dark:bg-darkBlue dark:text-white rounded-md w-[50%] px-4 table shadow-xl relative max-w-[200px] hover:cursor-pointer`}
       onClick={onFilterMenuClick}>
-      <span className="table-cell align-middle">{text}</span>
+      <span className="table-cell align-middle select-none">{text}</span>
       <DownArrow
         width="16px"
         height="16px"

@@ -28,6 +28,11 @@ export const FilterOptions = ({ onOptionClick }) => {
         continent="Oceania"
         value="Oceania"
       />
+      <Option
+        onClick={onOptionClick}
+        continent="None"
+        value="none"
+      />
     </ul>
   );
 };
