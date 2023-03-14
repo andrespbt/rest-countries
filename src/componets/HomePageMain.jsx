@@ -6,19 +6,10 @@ import { FilterSelect, SearchInput, CardList } from './';
 import { SkeletonList } from './homePageMainComponents/skeleton/SkeletonList';
 
 export const HomePageMain = () => {
-  const [updatedData, setUpdatedData] = useState([]);
   const { isMobile, isFilterMenuOpen } = useSelector(state => state.ui);
   const { filter } = useSelector(state => state.countries);
   const { data = [], isSuccess } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (filter) {
-      setUpdatedData(data);
-    } else {
-      setUpdatedData(data.slice(0, 50));
-    }
-  }, [isSuccess, filter]);
 
   const onMainClick = () => {
     isFilterMenuOpen && dispatch(setFilterMenuOpen(false));
@@ -36,7 +27,7 @@ export const HomePageMain = () => {
         <FilterSelect isMobile={isMobile} />
       </section>
       <section className={`${isMobile ? 'text-sm' : 'text-md'} w-full h-full`}>
-        {isSuccess ? <CardList data={updatedData} /> : <SkeletonList />}
+        {isSuccess ? <CardList data={data} /> : <SkeletonList />}
       </section>
     </main>
   );
