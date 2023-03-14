@@ -33,11 +33,6 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode _(optional)_
 
-### Screenshot
-
-![Photo Light](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.06_zoxdu9.png)
-![Photo Dark](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.15_ukggxf.png)
-
 ### Links
 
 - Solution URL: [Rest Country](https://restcountries-andrespbt.netlify.app/)
@@ -45,3 +40,9 @@ Users should be able to:
 ## Author
 
 - Linkedin - [Fernando Andres Poblete](https://www.linkedin.com/in/andres-poblete-dev/)
+
+### Screenshot
+
+![Photo Light](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.06_zoxdu9.png)
+
+![Photo Dark](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.15_ukggxf.png)
