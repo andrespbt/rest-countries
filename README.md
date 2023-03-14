@@ -35,12 +35,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](../photos/Screenshot%202023-03-14%20at%2010.34.06.png)
-![](../photos/Screenshot%202023-03-14%20at%2010.34.15.png)
+[](../photos/Screenshot%202023-03-14%20at%2010.34.06.png)
+[](../photos/Screenshot%202023-03-14%20at%2010.34.15.png)
 
 ### Links
 
-- Solution URL: (https://restcountries-andrespbt.netlify.app/)
+- Solution URL: [](https://restcountries-andrespbt.netlify.app/)
 
 ## Author
 
