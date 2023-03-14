@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Photo Light](../photos/Screenshot%202023-03-14%20at%2010.34.06.png)
-![Photo Dark](../photos/Screenshot%202023-03-14%20at%2010.34.15.png)
+![Photo Light](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.06_zoxdu9.png)
+![Photo Dark](https://res.cloudinary.com/dxirtcrxd/image/upload/v1678801481/restCountry/Screenshot_2023-03-14_at_10.34.15_ukggxf.png)
 
 ### Links
 
