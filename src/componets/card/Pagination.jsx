@@ -56,9 +56,11 @@ export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, current
         // Render our Page Pills
         return (
           <li
-            className={`${pageNumber === currentPage ? 'bg-darkBlue/10 dark:text-white dark:bg-darkBlue ' : ''} ${
+            className={`${
+              pageNumber === currentPage ? 'bg-darkGray/20 dark:text-white dark:bg-darkBlue ' : 'bg-white'
+            } ${
               pageNumber !== DOTS && 'border-[1px]'
-            } p-3 h-[25px] text-center my-auto mx-1 flex items-center justify-center rounded-md max-w-[25px] bg-white border-darkGray/20 hover:cursor-pointer md:h-10 md:mx-2 md:w-16 md:max-w-none select-none`}
+            } p-3 h-[25px] text-center my-auto mx-1 flex items-center justify-center rounded-md max-w-[25px]  border-darkGray/20 hover:cursor-pointer md:h-10 md:mx-2 md:w-16 md:max-w-none select-none`}
             key={index}
             onClick={() => onPageChange(pageNumber)}>
             {pageNumber}

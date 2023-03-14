@@ -22,7 +22,7 @@ export const SearchInput = ({ isMobile }) => {
       <input
         className={`${
           isMobile ? 'placeholder:text-sm text-sm' : 'placeholder:text-md text-md'
-        }  w-full h-[50px] pl-14 dark:placeholder:text-white placeholder:text-darkGray/40 dark:bg-darkBlue rounded-md focus:outline-none`}
+        }  w-full h-[50px] pl-14 dark:placeholder:text-white placeholder:text-darkGray/40 dark:bg-darkBlue rounded-md focus:outline-none select-none`}
         type="text"
         placeholder="Search for a country..."
         onChange={e => setSearchInput(e.target.value)}
