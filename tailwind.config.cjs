@@ -1,14 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     screens: {
       mobile: '375px',
-      // => @media (min-width: 640px) { ... }
+      // => @media (min-width: 375px) { ... }
+
+      md: '640px',
 
       desktop: '1440px',
-      // => @media (min-width: 1280px) { ... }
+      // => @media (min-width: 1440px) { ... }
     },
     colors: {
       darkBlue: 'hsl(209, 23%, 22%)', // (Dark Mode Elements)

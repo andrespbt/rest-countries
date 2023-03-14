@@ -43,8 +43,8 @@ export const Header = () => {
     <header
       className={`${
         isMobile ? 'text-sm' : 'text-base'
-      } flex px-4 py-6 h-[15vh] items-center justify-between dark:bg-darkBlue`}>
-      <h1 className="font-extrabold dark:text-white">Where in the world?</h1>
+      } flex px-4 py-6 h-[15vh] items-center justify-between dark:bg-darkBlue md:px-16`}>
+      <h1 className="font-extrabold dark:text-white md:text-xl">Where in the world?</h1>
       <button
         className="flex gap-2 font-semibold"
         onClick={onButtonModeClick}>

@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import { DOTS, usePagination } from '../../hooks/usePagination';
 import { PaginationArrowIcon } from '../icons/PaginationArrowIcon';
 import { ArrowPagination } from './ArrowPagination';
 
 export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, currentPage, pageSize }) => {
+  const { isMobile } = useSelector(state => state.ui);
   const paginationRange =
     usePagination({
       currentPage,
@@ -36,7 +38,7 @@ export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, current
       <ArrowPagination
         onClick={onPrevious}
         rotate={true}
-        viewBox="1 2 15 15"
+        viewBox={`${isMobile ? '1 2 15 15' : '1 2 10 10'}`}
         currentPage={currentPage}
         disableNumber={1}
       />
@@ -55,9 +57,9 @@ export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, current
         // Render our Page Pills
         return (
           <li
-            className={`${pageNumber === currentPage && 'bg-darkGray/20 dark:text-white dark:bg-darkBlue'} ${
+            className={`${pageNumber === currentPage && ' dark:text-white dark:bg-darkBlue bg-darkGray/30'} ${
               pageNumber !== DOTS && 'border-[1px]'
-            } p-3 h-[25px] text-center my-auto mx-1 flex items-center justify-center rounded-md max-w-[25px] bg-white border-darkGray/20`}
+            } p-3 h-[25px] text-center my-auto mx-1 flex items-center justify-center rounded-md max-w-[25px] bg-white border-darkGray/20 hover:cursor-pointer md:h-10 md:mx-2 md:w-16 md:max-w-none select-none`}
             key={index}
             onClick={() => onPageChange(pageNumber)}>
             {pageNumber}
@@ -68,7 +70,7 @@ export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, current
       <ArrowPagination
         onClick={onNext}
         rotate={false}
-        viewBox="1 -2 15 15"
+        viewBox={`${isMobile ? '1 -2 15 15' : '0 4 10 10'}`}
         currentPage={currentPage}
         disableNumber={lastPage}
       />
