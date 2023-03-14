@@ -56,7 +56,7 @@ export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, current
         // Render our Page Pills
         return (
           <li
-            className={`${pageNumber === currentPage && ' dark:text-white dark:bg-darkBlue bg-darkGray/20'} ${
+            className={`${pageNumber === currentPage ? ' dark:text-white dark:bg-darkBlue bg-darkGray/20' : ''} ${
               pageNumber !== DOTS && 'border-[1px]'
             } p-3 h-[25px] text-center my-auto mx-1 flex items-center justify-center rounded-md max-w-[25px] bg-white border-darkGray/20 hover:cursor-pointer md:h-10 md:mx-2 md:w-16 md:max-w-none select-none`}
             key={index}
