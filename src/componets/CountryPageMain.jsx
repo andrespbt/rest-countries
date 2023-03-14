@@ -7,7 +7,6 @@ import { SpanInfo } from './countryPageMainComponents/SpanInfo';
 import { PaginationArrowIcon } from './icons/PaginationArrowIcon';
 
 export const CountryPageMain = ({ code }) => {
-  console.log(code);
   const { data = [], isSuccess } = useGetCountryByCodeQuery(code.replace('/', ''));
   const { data: allCountriesData = [] } = useGetCountriesQuery();
   const navigate = useNavigate();
