@@ -4,7 +4,9 @@ import { CountryPageMain } from '../componets';
 
 export const CountryPage = () => {
   const location = useLocation();
-  const countryCode = location.pathname.slice(-3).trim();
+  let countryCode = location.pathname.split('/')[2];
+
+  if (countryCode.length < 3) countryCode = `0${countryCode}`;
 
   return (
     <>
