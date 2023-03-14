@@ -1,11 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetCountryByCodeQuery } from '../store/apis/countriesAPI';
 import { SpanInfo } from './countryPageMainComponents/SpanInfo';
 import { PaginationArrowIcon } from './icons/PaginationArrowIcon';
 
 export const CountryPageMain = ({ code }) => {
-  const { data = [], isLoading, isSuccess } = useGetCountryByCodeQuery(code);
+  const { data = [] } = useGetCountryByCodeQuery(code);
   const navigate = useNavigate();
 
   return (

@@ -20,7 +20,7 @@ export const HomePageMain = () => {
 
   return (
     <main className="bg-veryLightGray py-4 dark:bg-veryDarkBlueDarkMode">
-      <section className={`${isMobile ? 'flex-col gap-12 justify-start' : ''} flex w-full px-6`}>
+      <section className={`${isMobile ? 'flex-col gap-12 justify-start' : ''} flex w-full px-6 flex-wrap gap-[3rem]`}>
         <SearchInput isMobile={isMobile} />
         <FilterSelect isMobile={isMobile} />
       </section>
