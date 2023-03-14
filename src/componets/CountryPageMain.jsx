@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getBorderCountries } from '../helpers/getBorderCountries';
 import { useGetCountriesQuery, useGetCountryByCodeQuery } from '../store/apis/countriesAPI';
 import { Button } from './countryPageMainComponents/Button';
+import { SkeletonCountryPage } from './countryPageMainComponents/skeleton/SkeletonCountryPage';
 import { SpanInfo } from './countryPageMainComponents/SpanInfo';
 import { PaginationArrowIcon } from './icons/PaginationArrowIcon';
 
 export const CountryPageMain = ({ code }) => {
-  const [countriesData, setCountriesData] = useState();
-  const { data = [] } = useGetCountryByCodeQuery(code.replace('/', ''));
+  const { data = [], isSuccess } = useGetCountryByCodeQuery(code.replace('/', ''));
   const { data: allCountriesData = [] } = useGetCountriesQuery();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setCountriesData(allCountriesData);
-    }, 50);
-  }, []);
 
   const arrowIcon = (
     <PaginationArrowIcon
@@ -25,18 +19,6 @@ export const CountryPageMain = ({ code }) => {
       width="16px"
     />
   );
-
-  const getBorderCountries = countryCode => {
-    if (allCountriesData.length > 0) {
-      const {
-        cca3,
-        name: { common },
-      } = allCountriesData?.find(countries => countries.cca3 === countryCode);
-      return { cca3, common };
-    }
-
-    return { cca3: '', common: '' };
-  };
 
   return (
     <>
@@ -50,7 +32,7 @@ export const CountryPageMain = ({ code }) => {
           />
         </section>
         <section className="md:mt-8 md:ml-8">
-          {data &&
+          {isSuccess ? (
             data.map(country => {
               const {
                 name: { common },
@@ -118,12 +100,11 @@ export const CountryPageMain = ({ code }) => {
                       </div>
                     </div>
                     <div className="mt-5 max-w-[600px]">
-                      {/*  */}
                       {borders && (
                         <div className="md:flex md:items-center md:gap-2 md:flex-wrap">
                           <h3 className="font-semibold mb-4 md:mb-0">Border Countries</h3>
                           {borders?.map(countryCode => {
-                            const { common, cca3 } = getBorderCountries(countryCode);
+                            const { common, cca3 } = getBorderCountries(allCountriesData, countryCode);
                             return (
                               <Button
                                 key={countryCode}
@@ -141,7 +122,10 @@ export const CountryPageMain = ({ code }) => {
                   </div>
                 </div>
               );
-            })}
+            })
+          ) : (
+            <SkeletonCountryPage />
+          )}
         </section>
       </main>
     </>

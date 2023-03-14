@@ -9,7 +9,7 @@ export const HomePageMain = () => {
   const [updatedData, setUpdatedData] = useState([]);
   const { isMobile, isFilterMenuOpen } = useSelector(state => state.ui);
   const { filter } = useSelector(state => state.countries);
-  const { data = [], isFetching } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
+  const { data = [], isSuccess } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const HomePageMain = () => {
     } else {
       setUpdatedData(data.slice(0, 50));
     }
-  }, [isFetching, filter]);
+  }, [isSuccess, filter]);
 
   const onMainClick = () => {
     isFilterMenuOpen && dispatch(setFilterMenuOpen(false));
@@ -36,7 +36,7 @@ export const HomePageMain = () => {
         <FilterSelect isMobile={isMobile} />
       </section>
       <section className={`${isMobile ? 'text-sm' : 'text-md'} w-full h-full`}>
-        {isFetching ? <SkeletonList /> : <CardList data={updatedData} />}
+        {isSuccess ? <CardList data={updatedData} /> : <SkeletonList />}
       </section>
     </main>
   );

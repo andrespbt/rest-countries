@@ -24,7 +24,7 @@ export const FilterSelect = ({ isMobile }) => {
     <div
       className={`${
         isMobile ? 'text-sm' : 'text-base'
-      } h-[50px] bg-white dark:bg-darkBlue dark:text-white rounded-md w-[50%] px-4 table shadow-xl relative max-w-[200px]`}
+      } h-[50px] bg-white dark:bg-darkBlue dark:text-white rounded-md w-[50%] px-4 table shadow-xl relative max-w-[200px] hover:cursor-pointer`}
       onClick={onFilterMenuClick}>
       <span className="table-cell align-middle">{text}</span>
       <DownArrow

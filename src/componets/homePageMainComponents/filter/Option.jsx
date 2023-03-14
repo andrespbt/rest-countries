@@ -1,7 +1,7 @@
 export const Option = ({ continent, onClick }) => {
   return (
     <li
-      className="p-2"
+      className="p-2 hover:cursor-pointer"
       onClick={onClick}>
       {continent}
     </li>
