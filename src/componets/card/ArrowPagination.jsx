@@ -6,9 +6,9 @@ export const ArrowPagination = ({ onClick, rotate, viewBox, currentPage, disable
       className="p-3 h-[32px] text-center my-auto mx-1 flex items-center hover:cursor-pointer"
       onClick={onClick}>
       <PaginationArrowIcon
-        className={`${currentPage === disableNumber && 'fill-darkGray dark:fill-[#808080]'} ${
+        className={`${currentPage === disableNumber ? 'fill-darkGray dark:fill-[#808080]' : 'dark:fill-white'} ${
           rotate && 'rotate-180'
-        } dark:fill-white md:w-9`}
+        }  md:w-9`}
         viewBox={viewBox}
       />
     </li>
