@@ -11,7 +11,7 @@ export const Card = ({ info }) => {
     <li
       className={`${
         isMobile ? 'text-sm' : 'text-base'
-      } w-full bg-white dark:bg-darkBlue rounded-md pb-4 my-10 shadow-xl dark:text-white max-w-[252px] max-h-[400px] select-none`}
+      } w-full bg-white dark:bg-darkBlue rounded-md pb-4 my-10 shadow-xl dark:text-white max-w-[252px] max-h-[400px] select-none hover:cursor-pointer`}
       onClick={() => navigate(`/country/${ccn3}`)}>
       <div className="h-[180px] w-full rounded-t-md">
         <img

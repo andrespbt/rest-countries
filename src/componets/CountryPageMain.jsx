@@ -40,8 +40,8 @@ export const CountryPageMain = ({ code }) => {
 
   return (
     <>
-      <main className="dark:text-white bg-veryLightGray dark:bg-veryDarkBlueDarkMode p-6 text-base">
-        <section>
+      <main className="dark:text-white bg-veryLightGray dark:bg-veryDarkBlueDarkMode p-6 md:p-0  text-base min-h-[calc(100vh-98px)]">
+        <section className="md:pt-8 md:pl-16">
           <Button
             classes={{ button: 'w-28 px-4', span: 'ml-3' }}
             onClick={() => navigate('/')}
@@ -49,7 +49,7 @@ export const CountryPageMain = ({ code }) => {
             text="Back"
           />
         </section>
-        <section>
+        <section className="md:mt-8 md:ml-8">
           {data &&
             data.map(country => {
               const {
@@ -69,56 +69,59 @@ export const CountryPageMain = ({ code }) => {
               return (
                 <div
                   key={code}
-                  className="mt-10 py-10">
-                  <div>
+                  className="mt-10 py-10 md:flex md:justify-around">
+                  <div className="md:max-h-[350px] md:w-[40%]">
                     <img
+                      className="min-w-[320px] w-[320px] h-[160px] md:w-[500px] md:h-[300px]"
                       src={flags.png}
                       alt={flags.alt}
                     />
                   </div>
-                  <div className="mt-5 flex flex-col gap-4">
-                    <h2 className="font-extrabold">{common}</h2>
-                    <div className="flex flex-col gap-2">
-                      <SpanInfo
-                        text="Native name:"
-                        info={Object.values(nativeName)[0].official}
-                      />
-                      <SpanInfo
-                        text="Population:"
-                        info={population.toLocaleString()}
-                      />
-                      <SpanInfo
-                        text="Region:"
-                        info={region}
-                      />
-                      <SpanInfo
-                        text="Sub Region:"
-                        info={subregion}
-                      />
-                      <SpanInfo
-                        text="Capital:"
-                        info={capital}
-                      />
+                  <div className="mt-5 flex flex-col gap-4 md:mt-0 md:w-[40%]">
+                    <h2 className="font-extrabold my-5 md:mt-0 md:text-xl">{common}</h2>
+                    <div className="md:flex md:gap-28">
+                      <div className="flex flex-col gap-2">
+                        <SpanInfo
+                          text="Native name:"
+                          info={Object.values(nativeName)[0].official}
+                        />
+                        <SpanInfo
+                          text="Population:"
+                          info={population.toLocaleString()}
+                        />
+                        <SpanInfo
+                          text="Region:"
+                          info={region}
+                        />
+                        <SpanInfo
+                          text="Sub Region:"
+                          info={subregion}
+                        />
+                        <SpanInfo
+                          text="Capital:"
+                          info={capital}
+                        />
+                      </div>
+                      <div className="mt-5 flex flex-col gap-4 md:mt-0">
+                        <SpanInfo
+                          text="Top level domain:"
+                          info={tld[0]}
+                        />
+                        <SpanInfo
+                          text="Currencies:"
+                          info={{ ...currencies }}
+                        />
+                        <SpanInfo
+                          text="Languajes:"
+                          info={languages}
+                        />
+                      </div>
                     </div>
-                    <div className="mt-5 flex flex-col gap-4">
-                      <SpanInfo
-                        text="Top level domain:"
-                        info={tld[0]}
-                      />
-                      <SpanInfo
-                        text="Currencies:"
-                        info={{ ...currencies }}
-                      />
-                      <SpanInfo
-                        text="Languajes:"
-                        info={languages}
-                      />
-                    </div>
-                    <div className="mt-5">
+                    <div className="mt-5 max-w-[600px]">
                       {/*  */}
                       {borders && (
-                        <>
-                          <h3 className="font-semibold mb-4">Border Countries</h3>
+                        <div className="md:flex md:items-center md:gap-2 md:flex-wrap">
+                          <h3 className="font-semibold mb-4 md:mb-0">Border Countries</h3>
                           {borders?.map(countryCode => {
                             const { common, cca3 } = getBorderCountries(countryCode);
                             return (
@@ -130,7 +133,7 @@ export const CountryPageMain = ({ code }) => {
                               />
                             );
                           })}
-                        </>
+                        </div>
                       )}
 
                       <div className="flex gap-4"></div>

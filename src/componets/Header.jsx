@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleMode, setIsMobile } from '../store/features/ui/uiSlice';
 import { useEffect, useState } from 'react';
 import { MoonFilledIcon } from './icons/MoonFilledIcon';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const { isDarkMode, isMobile } = useSelector(state => state.ui);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [resolution, setResolution] = useState(window.screen.width);
 
@@ -44,9 +46,13 @@ export const Header = () => {
       className={`${
         isMobile ? 'text-sm' : 'text-base'
       } flex px-4 py-6 h-[15vh] items-center justify-between dark:bg-darkBlue md:px-16`}>
-      <h1 className="font-extrabold dark:text-white md:text-xl">Where in the world?</h1>
+      <h1
+        className="font-extrabold dark:text-white md:text-xl hover:cursor-pointer"
+        onClick={() => navigate('/')}>
+        Where in the world?
+      </h1>
       <button
-        className="flex gap-2 font-semibold"
+        className="flex gap-2 font-semibold hover:cursor-pointer"
         onClick={onButtonModeClick}>
         {!isDarkMode ? (
           <MoonIcon
