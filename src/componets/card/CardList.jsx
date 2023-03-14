@@ -1,7 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { usePagination } from '../../hooks/usePagination';
-import { PaginationArrowIcon } from '../icons/PaginationArrowIcon';
 import { Card } from './Card';
 import { Pagination } from './Pagination';
 

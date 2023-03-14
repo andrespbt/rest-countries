@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { DOTS, usePagination } from '../../hooks/usePagination';
-import { PaginationArrowIcon } from '../icons/PaginationArrowIcon';
 import { ArrowPagination } from './ArrowPagination';
 
 export const Pagination = ({ onPageChange, totalCount, siblingCount = 1, currentPage, pageSize }) => {

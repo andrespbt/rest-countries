@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Button = ({ classes, onClick, icon, text }) => {
   const { button, span } = classes;
   return (

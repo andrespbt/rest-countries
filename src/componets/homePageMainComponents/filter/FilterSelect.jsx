@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../../store/features/countries/countriesSlice';
 import { setFilterMenuOpen } from '../../../store/features/ui/uiSlice';
