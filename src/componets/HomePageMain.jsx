@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGetAllCountriesByRegionQuery, useGetCountriesQuery } from '../store/apis/countriesAPI';
+import { setFilterMenuOpen } from '../store/features/ui/uiSlice';
 import { FilterSelect, SearchInput, CardList } from './';
 import { SkeletonList } from './homePageMainComponents/skeleton/SkeletonList';
 
 export const HomePageMain = () => {
   const [updatedData, setUpdatedData] = useState([]);
-  const { isMobile } = useSelector(state => state.ui);
+  const { isMobile, isFilterMenuOpen } = useSelector(state => state.ui);
   const { filter } = useSelector(state => state.countries);
   const { data = [], isFetching } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (filter) {
@@ -18,8 +20,14 @@ export const HomePageMain = () => {
     }
   }, [isFetching, filter]);
 
+  const onMainClick = () => {
+    isFilterMenuOpen && dispatch(setFilterMenuOpen(false));
+  };
+
   return (
-    <main className="bg-veryLightGray py-4 dark:bg-veryDarkBlueDarkMode">
+    <main
+      className="bg-veryLightGray py-4 dark:bg-veryDarkBlueDarkMode"
+      onClick={onMainClick}>
       <section className={`${isMobile ? 'flex-col gap-12 justify-start' : ''} flex w-full px-6 flex-wrap gap-[3rem]`}>
         <SearchInput isMobile={isMobile} />
         <FilterSelect isMobile={isMobile} />

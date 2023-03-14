@@ -29,8 +29,8 @@ export const Header = () => {
 
   // Handle window resolution
   useEffect(() => {
-    if (isMobile && resolution >= 1440) dispatch(setIsMobile({ isMobile: false }));
-    if (!isMobile && resolution < 1440) dispatch(setIsMobile({ isMobile: true }));
+    if (isMobile && resolution >= 1440) dispatch(setIsMobile(false));
+    if (!isMobile && resolution < 1440) dispatch(setIsMobile(true));
 
     window.addEventListener('resize', onChangeResolution);
 

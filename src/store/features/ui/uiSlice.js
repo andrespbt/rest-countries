@@ -5,17 +5,21 @@ export const uiSlice = createSlice({
   initialState: {
     isDarkMode: false,
     isMobile: null,
+    isFilterMenuOpen: false,
   },
   reducers: {
     toggleMode: state => {
       state.isDarkMode = !state.isDarkMode;
     },
     setIsMobile: (state, { payload }) => {
-      state.isMobile = payload.isMobile;
+      state.isMobile = payload;
+    },
+    setFilterMenuOpen: (state, { payload }) => {
+      state.isFilterMenuOpen = payload;
     },
   },
 });
 
-export const { toggleMode, setIsMobile } = uiSlice.actions;
+export const { toggleMode, setIsMobile, setFilterMenuOpen } = uiSlice.actions;
 
 export default uiSlice.reducer;
