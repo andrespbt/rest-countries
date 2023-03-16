@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { CardSpan } from './CardSpan';
 
 export const Card = ({ info }) => {
-  const { flags: { alt, png } = [], name: { common } = '', population, region, capital, ccn3 } = info;
+  const {
+    name: { common } = '',
+    flags: { alt = `${common} flag`, png } = [],
+    population,
+    region,
+    capital,
+    ccn3,
+  } = info;
   const { isMobile } = useSelector(state => state.ui);
   const navigate = useNavigate();
 
