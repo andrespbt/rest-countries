@@ -17,10 +17,10 @@ export const CardList = ({ data = [] }) => {
   return (
     <>
       <ul className="w-[80%] flex flex-col items-center mx-auto px-6 md:flex-row gap-4 flex-wrap md:px-0 md:w-full md:my-8 md:gap-0 md:gap-x-24 md:justify-center max-w-[1440px]">
-        {currentTableData.map(({ flags, ccn3, name, population, region, capital }) => (
+        {currentTableData.map(({ flags, ccn3, name, population, region, capital, alpha3Code = '' }) => (
           <Card
-            info={{ flags, name, population, region, capital, ccn3 }}
-            key={ccn3}
+            info={{ flags, name, population, region, capital, ccn3, alpha3Code }}
+            key={ccn3 ? ccn3 : alpha3Code}
           />
         ))}
       </ul>

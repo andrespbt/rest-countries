@@ -7,7 +7,7 @@ import { SpanInfo } from './countryPageMainComponents/SpanInfo';
 import { PaginationArrowIcon } from './icons/PaginationArrowIcon';
 
 export const CountryPageMain = ({ code }) => {
-  const { data = [], isSuccess } = useGetCountryByCodeQuery(code.replace('/', ''));
+  const { data = [], isSuccess, error } = useGetCountryByCodeQuery(code.replace('/', ''));
   const { data: allCountriesData = [] } = useGetCountriesQuery();
   const navigate = useNavigate();
 
@@ -35,6 +35,8 @@ export const CountryPageMain = ({ code }) => {
           {isSuccess ? (
             data.map(country => {
               const {
+                name,
+                nativeName: localNativeName,
                 name: { common },
                 name: { nativeName },
                 population,
@@ -43,10 +45,17 @@ export const CountryPageMain = ({ code }) => {
                 subregion,
                 capital,
                 tld,
+                topLevelDomain,
                 currencies,
                 languages,
                 borders,
               } = country;
+
+              const countryToRender = {
+                name: common ? common : name,
+                nativeName: localNativeName ? localNativeName : nativeName,
+                tld: tld ? tld : topLevelDomain[0],
+              };
 
               return (
                 <div
@@ -65,7 +74,7 @@ export const CountryPageMain = ({ code }) => {
                       <div className="flex flex-col gap-2">
                         <SpanInfo
                           text="Native name:"
-                          info={Object.values(nativeName)[0].official}
+                          info={countryToRender.nativeName}
                         />
                         <SpanInfo
                           text="Population:"
@@ -87,7 +96,7 @@ export const CountryPageMain = ({ code }) => {
                       <div className="mt-5 flex flex-col gap-4 md:mt-0">
                         <SpanInfo
                           text="Top level domain:"
-                          info={tld[0]}
+                          info={countryToRender.tld}
                         />
                         <SpanInfo
                           text="Currencies:"
@@ -104,12 +113,18 @@ export const CountryPageMain = ({ code }) => {
                         <div className="md:flex md:items-center md:gap-2 md:flex-wrap">
                           <h3 className="font-semibold mb-4 md:mb-0">Border Countries</h3>
                           {borders?.map(countryCode => {
-                            const { common, cca3 } = getBorderCountries(allCountriesData, countryCode);
+                            const country = getBorderCountries(allCountriesData, countryCode);
+
+                            const info = {
+                              name: country?.name.common ? country?.name.common : country?.name,
+                              code: country?.cca3 ? country?.cca3 : country?.alpha3Code,
+                            };
+
                             return (
                               <Button
                                 key={countryCode}
-                                text={common}
-                                onClick={() => navigate(`/country/${cca3}`)}
+                                text={info.name}
+                                onClick={() => navigate(`/country/${info.code}`)}
                                 classes={{ button: 'w-32 m-2 text-center' }}
                               />
                             );

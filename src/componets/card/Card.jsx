@@ -4,12 +4,14 @@ import { CardSpan } from './CardSpan';
 
 export const Card = ({ info }) => {
   const {
-    name: { common } = '',
+    name: localName,
+    name: { common } = '' || name,
     flags: { alt = `${common} flag`, png } = [],
     population,
     region,
     capital,
     ccn3,
+    alpha3Code,
   } = info;
   const { isMobile } = useSelector(state => state.ui);
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ export const Card = ({ info }) => {
       className={`${
         isMobile ? 'text-sm' : 'text-base'
       } w-full bg-white dark:bg-darkBlue rounded-md pb-4 my-10 shadow-xl dark:text-white max-w-[252px] max-h-[400px] select-none hover:cursor-pointer`}
-      onClick={() => navigate(`/country/${ccn3}`)}>
+      onClick={() => navigate(`/country/${ccn3 ? ccn3 : alpha3Code}`)}>
       <div className="h-[180px] w-full rounded-t-md">
         <img
           className="w-full h-full rounded-t-md"
@@ -28,7 +30,7 @@ export const Card = ({ info }) => {
         />
       </div>
       <div className="mx-6">
-        <h3 className="w-full mt-4 font-extrabold">{common}</h3>
+        <h3 className="w-full mt-4 font-extrabold">{common ? common : localName}</h3>
         <CardSpan
           text="Population"
           info={population.toLocaleString()}

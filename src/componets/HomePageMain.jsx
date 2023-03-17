@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetAllCountriesByRegionQuery, useGetCountriesQuery } from '../store/apis/countriesAPI';
 import { setFilterMenuOpen } from '../store/features/ui/uiSlice';
 import { FilterSelect, SearchInput, CardList } from './';
 import { SkeletonList } from './homePageMainComponents/skeleton/SkeletonList';
+import { filterLocalDataByRegion } from '../helpers/filterLocalDataByRegion';
+import * as localData from '../data/data.json';
 
 export const HomePageMain = () => {
   const { isMobile, isFilterMenuOpen } = useSelector(state => state.ui);
   const { filter } = useSelector(state => state.countries);
   const { data = [], isSuccess } = filter ? useGetAllCountriesByRegionQuery(filter) : useGetCountriesQuery();
   const dispatch = useDispatch();
+  let localDataUpdated = filter ? filterLocalDataByRegion(localData.default, filter) : localData.default;
 
   const onMainClick = () => {
     isFilterMenuOpen && dispatch(setFilterMenuOpen(false));
