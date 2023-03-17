@@ -1,7 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { filterLocalDataByName } from '../../helpers/filterLocalDataByName';
-import * as localData from '../../data/data.json';
-import { filterLocalDataByRegion } from '../../helpers/filterLocalDataByRegion';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { axiosBaseQuery } from '../../helpers/axiosBaseQuery';
 
 export const countriesApi = createApi({

@@ -1,9 +1,8 @@
-import { MoonIcon } from './icons/MoonIcon';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleMode, setIsMobile } from '../store/features/ui/uiSlice';
 import { useEffect, useState } from 'react';
-import { MoonFilledIcon } from './icons/MoonFilledIcon';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { MoonIcon, MoonFilledIcon } from './icons';
+import { toggleMode, setIsMobile } from '../store/features/ui/uiSlice';
 
 export const Header = () => {
   const { isDarkMode, isMobile } = useSelector(state => state.ui);

@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { getBorderCountries } from '../helpers/getBorderCountries';
 import { useGetCountriesQuery, useGetCountryByCodeQuery } from '../store/apis/countriesAPI';
-import { Button } from './countryPageMainComponents/Button';
-import { SkeletonCountryPage } from './countryPageMainComponents/skeleton/SkeletonCountryPage';
-import { SpanInfo } from './countryPageMainComponents/SpanInfo';
-import { PaginationArrowIcon } from './icons/PaginationArrowIcon';
+import { Button, SkeletonCountryPage, SpanInfo } from './countryPageMainComponents';
+import { PaginationArrowIcon } from './icons';
 
 export const CountryPageMain = ({ code }) => {
   const { data = [], isSuccess, error } = useGetCountryByCodeQuery(code.replace('/', ''));
